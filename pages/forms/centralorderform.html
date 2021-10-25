@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="../../plugins/fontawesome-free/css/all.min.css"
+    />
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css" />
+    <link
+      rel="stylesheet"
+      href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css"
+    />
+
+    <!-- BS Stepper -->
+    <link
+      rel="stylesheet"
+      href="../../plugins/bs-stepper/css/bs-stepper.min.css"
+    />
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+  </head>
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <!-- <div class="col-sm-6">
+                <h1>Central Store Order Form</h1>
+              </div> -->
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="container">
+            <!-- SELECT2 EXAMPLE -->
+            <div class="card card-default">
+              <!-- /.card-header -->
+              <form>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label><h6>Particulars</h6></label>
+
+                      <select
+                        id="car"
+                        class="form-control select2"
+                        style="width: 100%"
+                        onchange="ChangeCarList()"
+                      >
+                        <option value="">-- Particulars --</option>
+                        <option value="VO">Non-Veg</option>
+                        <option value="VW">Veg</option>
+                        <option value="BMW">Yomari</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-4">
+                      <label><h6>Items</h6></label>
+
+                      <select
+                        class="form-control select2"
+                        style="width: 100%"
+                        id="carmodel"
+                      ></select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label><h6>SOH</h6></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="SOH ..."
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label><h6>Units</h6></label>
+                        <select
+                          class="form-control select2"
+                          style="width: 100%"
+                        >
+                          <option selected="selected">gms</option>
+                          <option>pc</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <h4 class="badge">Delivered</h4>
+
+                    <div class="col-sm-3">
+                      <div class="row">
+                        <div class="form-group">
+                          <label><h6>Quantity</h6></label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Qty "
+                          />
+                        </div>
+
+                        <!-- /.form-group -->
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label><h6>Amount</h6></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Amount"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- /.form-group -->
+                  </div>
+
+                  <div class="row">
+                    <h4 class="badge">Received</h4>
+
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label><h6>Quantity</h6></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Qty ..."
+                        />
+                      </div>
+                      <!-- /.form-group -->
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label><h6>Amount</h6></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Amount ..."
+                        />
+                      </div>
+                      <!-- /.form-group -->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h4 class="badge">Return</h4>
+
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label><h6>Quantity</h6></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Qty ..."
+                        />
+                      </div>
+                      <!-- /.form-group -->
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label><h6>Amount</h6></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Amount"
+                        />
+                      </div>
+                      <!-- /.form-group -->
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <!-- <div class="col-sm-2">
+                      <div class="form-group">
+                        <label><h6>SOH</h6></label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="SOH ..."
+                        />
+                      </div>
+                    </div> -->
+                    <div class="col-sm-2">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Total"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Order</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      var carsAndModels = {};
+      carsAndModels["VO"] = ["chicken", "fish", "egg"];
+      carsAndModels["VW"] = ["ginger", "onion", "raddish", "carrot"];
+      carsAndModels["BMW"] = ["mas", "chaku", "chicken"];
+
+      function ChangeCarList() {
+        var carList = document.getElementById("car");
+        var modelList = document.getElementById("carmodel");
+        var selCar = carList.options[carList.selectedIndex].value;
+        while (modelList.options.length) {
+          modelList.remove(0);
+        }
+        var cars = carsAndModels[selCar];
+        if (cars) {
+          var i;
+          for (i = 0; i < cars.length; i++) {
+            var car = new Option(cars[i], i);
+            modelList.options.add(car);
+          }
+        }
+      }
+    </script>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="../../plugins/select2/js/select2.full.min.js"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="../../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <!-- InputMask -->
+    <script src="../../plugins/moment/moment.min.js"></script>
+    <script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <!-- bootstrap color picker -->
+    <!-- Tempusdominus Bootstrap 4 -->
+    <!-- Bootstrap Switch -->
+    <script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- BS-Stepper -->
+    <!-- dropzonejs -->
+    <script src="../../plugins/dropzone/min/dropzone.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+    <!-- Page specific script -->
+  </body>
+</html>
